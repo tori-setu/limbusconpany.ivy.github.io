@@ -74,7 +74,7 @@ section {
   padding: 20px;
   border-radius: 10px;
   width: 80%;
-  max-width: 200px;
+  max-width: 100px;
   text-align: center;
 }
 /* モーダルのベーススタイル */
@@ -98,7 +98,7 @@ section {
   padding: 20px;
   border-radius: 12px;
   width: 80%;
-  max-width: 500px;
+  max-width: 1000px;
   text-align: center;
   position: relative;
   animation: fadeIn 0.5s ease;
