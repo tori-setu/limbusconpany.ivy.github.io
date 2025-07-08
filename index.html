@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Limbus Company - ファンサイト</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
     <h1>Limbus Company</h1>
+
     <nav>
       <ul>
         <li><a href="#story">ストーリー</a></li>
         <li><a href="#characters">キャラクター</a></li>
+        <li><a href="#battle">バトルシステム</a></li>
         <li><a href="#media">メディア</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
@@ -21,57 +25,181 @@
 
   <main>
     <section id="hero">
-      <h2>罪を運ぶ列車に乗れ</h2>
+      <h2>罪を運ぶバスに乗れ</h2>
       <p>これは、あなたの“管理者”としての物語。</p>
+
+
+
     </section>
 
     <section id="story">
       <h2>ストーリー</h2>
       <p>かつて存在したLobotomy Corporationの中にある「黄金の枝」を手に入れるため、あなたは星位を刻む。12人の罪人たちと共に、“罪”の旅路へ——。</p>
     </section>
+    <script>
+        function showModal(title, imageSrc, description) {
+    const modal = document.getElementById("modal");
+    const modalImage = document.getElementById("modal-image");
+
+    document.getElementById("modal-title").textContent = title;
+    document.getElementById("modal-description").textContent = description;
+
+    // 一度フェードクラスと画像をリセット
+    modalImage.classList.remove("fade-in");
+    modalImage.style.opacity = 1;
+    modalImage.src = ""; // 一度空にすることでonloadを確実に呼ぶ
+
+    // 一旦srcをクリアしてから再設定
+    setTimeout(() => {
+      modalImage.src = imageSrc;
+    }, 10);
+
+    // 読み込み完了時にfade-inを追加
+    modalImage.onload = () => {
+      modalImage.classList.add("fade-in");
+    };
+
+    modal.style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    const modal = document.getElementById("modal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+    </script>
+    <div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title"></h2>
+    <img id="modal-image" src="" alt="" style="width:100%; max-width:300px;" />
+    <p id="modal-description"></p>
+  </div>
+</div>
 
     <section id="characters">
       <h2>キャラクター</h2>
       <div class="character-grid">
         <div class="character-card">
-          <img src="img.scr\dante.jpg" alt="ダンテ" />
+          <img src="img.scr/dante.jpg" alt="ダンテ" />
           <h3>ダンテ</h3>
-          <p>記憶を失った管理人。星位を刻むことを現在の目標にしている</p>
+          <p>記憶を失った管理人でありバスの囚人。星位を刻むことを現在の目標にしている</p>
         </div>
         <div class="character-card">
-          <img src="img.scr\Vergilius.png.webp" alt="ヴェルギリウス" />
+          <img src="img.scr/Vergilius.png.webp" alt="ヴェルギリウス" />
           <h3>ヴェルギリウス</h3>
-          <p>管理人を導くバスの案内人</p>
+          <p>管理人を導くバスの案内人<br><a href="https://ja.namu.wiki/w/Leviathan(Project%20Moon)">過去を少し知りたい人はこちら</a></p>
         </div>
         <!-- 他のキャラも追加可能 -->
+        <div class="character-card" onclick="showModal('イサン', 'img.scr/Yi-sang.png', 'バスの中の囚人。囚人番号は１番')">
+          <img src="img.scr/Yi-sang.png" alt="イサン" />
+          <h3>イサン</h3>
+          <p>バスの中の囚人。囚人番号は１番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('ファウスト', 'img.scr/faust.jpg', 'バスの中の囚人。囚人番号は２番')">
+          <img src="img.scr/faust.jpg" />
+          <h3>ファウスト</h3>
+          <p>バスの中の囚人。囚人番号は２番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('ドンキホーテ', 'img.scr/donxihote.jpg', 'バスの中の囚人。囚人番号は３番')">
+          <img src="img.scr/donxihote.jpg" />
+          <h3>ドンキホーテ</h3>
+          <p>バスの中の囚人。囚人番号は３番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('良秀', 'img.scr/ryosyu.jpg', 'バスの中の囚人。囚人番号は４番')">
+          <img src="img.scr/ryosyu.jpg" />
+          <h3>良秀</h3>
+          <p>バスの中の囚人。囚人番号は４番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('ムルソー', 'img.scr/mruso.jpg', 'バスの中の囚人。囚人番号は５番')">
+          <img src="img.scr/mruso.jpg" />
+          <h3>ムルソー</h3>
+          <p>バスの中の囚人。囚人番号は５番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('ホンル', 'img.scr/hong-ru.jpg', 'バスの中の囚人。囚人番号は６番')">
+          <img src="img.scr/hong-ru.jpg" />
+          <h3>ホンル</h3>
+          <p>バスの中の囚人。囚人番号は６番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('ヒースクリフ', 'img.scr/Heathcliff.jpg', 'バスの中の囚人。囚人番号は７番')">
+          <img src="img.scr/Heathcliff.jpg" />
+          <h3>ヒースクリフ</h3>
+          <p>バスの中の囚人。囚人番号は７番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('イシュメール', 'img.scr/ishmaer.jpg', 'バスの中の囚人。囚人番号は８番')">
+          <img src="img.scr/ishmaer.jpg" />
+          <h3>イシュメール</h3>
+          <p>バスの中の囚人。囚人番号は８番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('ロージャ', 'img.scr/rodion.png', 'バスの中の囚人。囚人番号は９番')">
+          <img src="img.scr/rodion.png" />
+          <h3>ロージャ</h3>
+          <p>バスの中の囚人。囚人番号は９番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('シンクレア', 'img.scr/sincleir.jpg', 'バスの中の囚人。囚人番号は１１番')">
+          <img src="img.scr/sincleir.jpg" />
+          <h3>シンクレア</h3>
+          <p>バスの中の囚人。囚人番号は１１番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('ウーティス', 'img.scr/outis.png', 'バスの中の囚人。囚人番号は１２番')">
+          <img src="img.scr/outis.png" />
+          <h3>ウーティス</h3>
+          <p>バスの中の囚人。囚人番号は１２番</p>
+        </div>
+
+        <div class="character-card" onclick="showModal('グレゴール', 'img.scr/gregor.jpg', 'バスの中の囚人。囚人番号は１３番')">
+          <img src="img.scr/gregor.jpg" />
+          <h3>グレゴール</h3>
+          <p>バスの中の囚人。囚人番号は１３番</p>
+        </div>
       </div>
     </section>
 
+    <section id="battle">
+      <h2>バトルシステム</h2>
+      <img src="img.scr\image5_frzs.gif" alt="バトル画面" style="width: 100%; max-width: 600px;" />
+      <p>独自のコマンド連携システムで、戦略的なバトルを展開しよう。</p>
+      <li><a href="about.html">戦闘について詳しい説明はこちら</a></li>
+    </section>
     <section id="media">
       <h2>メディア</h2>
       <p>公式PV、サウンドトラック、壁紙などをご紹介予定。</p>
-       <iframe width="560" height="315" 
-          src="https://www.youtube.com/embed/動画ID" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-  </iframe>
-    </section>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/XfTWgMgknpY" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
 
-    <section id="contact">
-      <h2>お問い合わせ</h2>
-      <form>
-        <input type="text" placeholder="名前" required />
-        <input type="email" placeholder="メールアドレス" required />
-        <textarea placeholder="メッセージ内容" required></textarea>
-        <button type="submit">送信</button>
-      </form>
-    </section>
+
+      <section id="contact">
+        <h2>お問い合わせ</h2>
+        <form>
+          <input type="text" placeholder="名前" required />
+          <input type="email" placeholder="メールアドレス" required />
+          <textarea placeholder="メッセージ内容" required></textarea>
+          <button type="submit">送信</button>
+        </form>
+      </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Limbus Company Fan Project. Not affiliated with ProjectMoon.</p>
   </footer>
 </body>
+
 </html>
